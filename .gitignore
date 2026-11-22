@@ -15,9 +15,6 @@ __pycache__/
 
 # Large dataset archives and raw bags (>100MB, rejected by GitHub)
 *.bag
-*.zip
-!stepstack.zip
-!team_name.zip
 data/raw/**/*.bag
 data/raw/**/*.zip
 
