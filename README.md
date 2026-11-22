@@ -282,4 +282,4 @@ Over extended flight durations (e.g. 184 seconds on `MH_01_easy`), unassisted de
 ## 📄 License & Team
 
 Developed for **Samsung XR Hackathon 2026 — Track 03: Path Finder**.  
-**Team stepstack:** Tejeshwar Senthilkumar & Contributors.
+**Team stepstack:** Tejeshwar Senthilkumar & Jashwanth B.
