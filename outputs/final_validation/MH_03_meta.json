@@ -1,0 +1,51 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "input_path": "outputs/MH_03_medium_degraded.csv",
+  "output_path": "outputs/final_validation/MH_03_final.txt",
+  "input_frames": 26189,
+  "output_tum_poses": 26189,
+  "telemetry_duration_s": 135.034999808,
+  "execution_runtime_s": 9.782507900003111,
+  "compute_latency_ms_per_s": 72.44423974460254,
+  "python_heap_peak_mb": 3.9615564346313477,
+  "process_peak_rss_mb": 167.859375,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": true,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": false,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 26189,
+    "duration_s": 135.034999808,
+    "duration_decimal_s": "135.034999808",
+    "timestamp_start_s": 1403637130.4983191,
+    "timestamp_end_s": 1403637265.533319,
+    "max_quat_norm_deviation": 8.821971109185256e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.001693548484848485,
+      0.01967577424242424,
+      0.07852523484848485
+    ],
+    "confidence": "MEDIUM",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 2020,
+      "end_index": 2679,
+      "start_timestamp_ns": 1403637140608318976,
+      "end_timestamp_ns": 1403637143913318912,
+      "duration_s": 3.304999936,
+      "sample_count": 660,
+      "total_candidate_intervals_found": 1
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

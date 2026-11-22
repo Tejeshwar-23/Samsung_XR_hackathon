@@ -1,0 +1,43 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "input_path": "outputs/MH_02_easy_degraded.csv",
+  "output_path": "outputs/final_validation/MH_02_final.txt",
+  "input_frames": 29480,
+  "output_tum_poses": 29480,
+  "telemetry_duration_s": 151.995000064,
+  "execution_runtime_s": 11.27222840001923,
+  "compute_latency_ms_per_s": 74.16183687142914,
+  "python_heap_peak_mb": 4.439615249633789,
+  "process_peak_rss_mb": 146.32421875,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": true,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": false,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 29480,
+    "duration_s": 151.995000064,
+    "duration_decimal_s": "151.995000064",
+    "timestamp_start_s": 1403636858.6316664,
+    "timestamp_end_s": 1403637010.6266665,
+    "max_quat_norm_deviation": 8.657373746778774e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "confidence": "NONE",
+    "status": "NO_RELIABLE_INTERVAL",
+    "interval_info": {},
+    "micro_gap_threshold_s": 0.025
+  }
+}

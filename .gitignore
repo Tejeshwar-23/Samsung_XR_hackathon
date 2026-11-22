@@ -1,0 +1,29 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS and Editor files
+.DS_Store
+._*
+.vscode/
+.idea/
+
+# Large dataset archives and raw bags (>100MB, rejected by GitHub)
+*.bag
+*.zip
+!stepstack.zip
+!team_name.zip
+data/raw/**/*.bag
+data/raw/**/*.zip
+
+# EuRoC raw camera images (Track 3 is IMU-only; camera images are >10GB)
+data/raw/**/cam0/data/
+data/raw/**/cam1/data/
+
+# Temporary test extraction directories
+scratch/test_unzip_run/

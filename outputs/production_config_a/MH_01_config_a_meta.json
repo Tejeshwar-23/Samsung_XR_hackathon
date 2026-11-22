@@ -1,0 +1,51 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "input_path": "outputs/MH_01_easy_degraded.csv",
+  "output_path": "outputs/production_config_a/MH_01_config_a.txt",
+  "input_frames": 35629,
+  "output_tum_poses": 35629,
+  "telemetry_duration_s": 184.095000064,
+  "execution_runtime_s": 33.11422920000041,
+  "compute_latency_ms_per_s": 179.8757662537731,
+  "python_heap_peak_mb": 5.37938117980957,
+  "process_peak_rss_mb": 102.07421875,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": true,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": false,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 35629,
+    "duration_s": 184.095000064,
+    "duration_decimal_s": "184.095000064",
+    "timestamp_start_s": 1403636579.7585554,
+    "timestamp_end_s": 1403636763.8535554,
+    "max_quat_norm_deviation": 8.842136089981523e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.0030296719999999997,
+      0.022073285499999998,
+      0.0810760945
+    ],
+    "confidence": "HIGH",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 4260,
+      "end_index": 6259,
+      "start_timestamp_ns": 1403636601098555392,
+      "end_timestamp_ns": 1403636611123555584,
+      "duration_s": 10.025000192,
+      "sample_count": 2000,
+      "total_candidate_intervals_found": 1
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

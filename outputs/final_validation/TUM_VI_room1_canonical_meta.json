@@ -1,0 +1,43 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "input_path": "outputs/TUM_VI_room1_degraded_canonical.csv",
+  "output_path": "outputs/final_validation/TUM_VI_room1_canonical_final.txt",
+  "input_frames": 27330,
+  "output_tum_poses": 27330,
+  "telemetry_duration_s": 141.050428,
+  "execution_runtime_s": 10.128504199994495,
+  "compute_latency_ms_per_s": 71.80768143429167,
+  "python_heap_peak_mb": 4.126742362976074,
+  "process_peak_rss_mb": 167.859375,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": true,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": false,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 27330,
+    "duration_s": 141.050428,
+    "duration_decimal_s": "141.050428000",
+    "timestamp_start_s": 1520530308.1819015,
+    "timestamp_end_s": 1520530449.2323294,
+    "max_quat_norm_deviation": 7.61106710323034e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "confidence": "NONE",
+    "status": "NO_RELIABLE_INTERVAL",
+    "interval_info": {},
+    "micro_gap_threshold_s": 0.025
+  }
+}

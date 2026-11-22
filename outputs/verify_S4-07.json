@@ -1,0 +1,55 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "scenario_id": "S4-07",
+  "seed": 42,
+  "input_path": "data/raw/euroc/machine_hall/MH_01_easy/mav0/imu0/data.csv",
+  "output_path": "outputs/verify_S4-07.txt",
+  "input_raw_frames": 36820,
+  "frames_after_degradation": 36420,
+  "output_tum_poses": 36420,
+  "extrapolated_poses": 0,
+  "telemetry_duration_s": 184.095000064,
+  "execution_runtime_s": 2.2468525000149384,
+  "compute_latency_ms_per_s": 12.20485346823014,
+  "python_heap_peak_mb": 15.070592880249023,
+  "process_peak_rss_mb": 135.97265625,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": false,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": true,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 36420,
+    "duration_s": 184.095000064,
+    "duration_decimal_s": "184.095000064",
+    "timestamp_start_s": 1403636579.7585554,
+    "timestamp_end_s": 1403636763.8535554,
+    "max_quat_norm_deviation": 8.907741031460858e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.00311042605980418,
+      0.020711448234291285,
+      0.0796368804409984
+    ],
+    "confidence": "HIGH",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 4800,
+      "end_index": 5919,
+      "start_timestamp_ns": 1403636605758555392,
+      "end_timestamp_ns": 1403636611353555456,
+      "duration_s": 5.595000064000001,
+      "sample_count": 1120,
+      "total_candidate_intervals_found": 3
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "input_path": "outputs/MH_05_difficult_degraded.csv",
+  "output_path": "outputs/final_validation/MH_05_final.txt",
+  "input_frames": 22137,
+  "output_tum_poses": 22137,
+  "telemetry_duration_s": 113.6,
+  "execution_runtime_s": 8.1910861999786,
+  "compute_latency_ms_per_s": 72.10463204206513,
+  "python_heap_peak_mb": 3.3676300048828125,
+  "process_peak_rss_mb": 167.859375,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": true,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": false,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 22137,
+    "duration_s": 113.6,
+    "duration_decimal_s": "113.600000000",
+    "timestamp_start_s": 1403638518.0978293,
+    "timestamp_end_s": 1403638631.6978295,
+    "max_quat_norm_deviation": 8.968130977837774e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.002007664705882353,
+      0.02000115735294118,
+      0.0778294455882353
+    ],
+    "confidence": "MEDIUM",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 0,
+      "end_index": 679,
+      "start_timestamp_ns": 1403638518097829376,
+      "end_timestamp_ns": 1403638521497829376,
+      "duration_s": 3.4000000000000004,
+      "sample_count": 680,
+      "total_candidate_intervals_found": 1
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

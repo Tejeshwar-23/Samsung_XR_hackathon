@@ -1,0 +1,76 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "scenario_id": "S4-01",
+  "seed": 42,
+  "input_path": "data/raw/euroc/machine_hall/MH_02_easy/mav0/imu0/data.csv",
+  "output_path": "outputs/MH_02_easy_est.txt",
+  "input_raw_frames": 30400,
+  "frames_after_degradation": 30400,
+  "output_tum_poses": 30400,
+  "extrapolated_poses": 0,
+  "telemetry_duration_s": 151.995000064,
+  "execution_runtime_s": 1.9937338999588974,
+  "compute_latency_ms_per_s": 13.117101872557669,
+  "python_heap_peak_mb": 15.474858283996582,
+  "process_peak_rss_mb": 144.1953125,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": false,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": true,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\senth\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-63c857e738469261263c764a36be9436.dll",
+        "version": "0.3.31.188.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\senth\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-64eda39e79589aedb16f58e5547eb599.dll",
+        "version": "0.3.30",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 30400,
+    "duration_s": 151.995000064,
+    "duration_decimal_s": "151.995000064",
+    "timestamp_start_s": 1403636858.6316664,
+    "timestamp_end_s": 1403637010.6266665,
+    "max_quat_norm_deviation": 9.092005868183151e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.0024059363738741556,
+      0.020167279506794426,
+      0.07861661082683254
+    ],
+    "confidence": "MEDIUM",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 5180,
+      "end_index": 5979,
+      "start_timestamp_ns": 1403636884531666432,
+      "end_timestamp_ns": 1403636888526666496,
+      "duration_s": 3.995000064,
+      "sample_count": 800,
+      "total_candidate_intervals_found": 1
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

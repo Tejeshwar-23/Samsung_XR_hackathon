@@ -1,0 +1,392 @@
+{
+  "metadata": {
+    "title": "Samsung XR Hackathon 2026 Track 3 - Slide 11 Verified Results",
+    "configuration": {
+      "v_max_mps": 10.0,
+      "outage_decay_rate_s_inv": 1.5,
+      "pipeline_version": "Production Configuration A",
+      "alignment_method": "SE(3) Umeyama Alignment (rotation + translation, scale=1.0)",
+      "rpe_interval": "1.0 second (200 frames at 200 Hz)",
+      "attitude_init": "World-frame gravity alignment via integrated relative orientation",
+      "single_thread_enforced": true
+    },
+    "source_file": "outputs/production_config_a/final_benchmark_results.json",
+    "budget_limits": {
+      "python_heap_mb": 8.0,
+      "compute_latency_ms_per_s": 20.0
+    }
+  },
+  "slide11_main_table": [
+    {
+      "sequence": "MH_01_easy",
+      "dataset": "EuRoC MAV",
+      "frames": 35629,
+      "ate_rmse_m": 374.74,
+      "rpe_1s_rmse_m": 9.08,
+      "heap_peak_mb": 5.38,
+      "untraced_latency_ms_s": 2.48,
+      "validation": "PASS"
+    },
+    {
+      "sequence": "MH_02_easy",
+      "dataset": "EuRoC MAV",
+      "frames": 29480,
+      "ate_rmse_m": 332.63,
+      "rpe_1s_rmse_m": 10.02,
+      "heap_peak_mb": 4.44,
+      "untraced_latency_ms_s": 2.53,
+      "validation": "PASS"
+    },
+    {
+      "sequence": "MH_03_medium",
+      "dataset": "EuRoC MAV",
+      "frames": 26189,
+      "ate_rmse_m": 309.47,
+      "rpe_1s_rmse_m": 8.93,
+      "heap_peak_mb": 3.96,
+      "untraced_latency_ms_s": 2.56,
+      "validation": "PASS"
+    },
+    {
+      "sequence": "MH_04_difficult",
+      "dataset": "EuRoC MAV",
+      "frames": 19753,
+      "ate_rmse_m": 156.77,
+      "rpe_1s_rmse_m": 7.15,
+      "heap_peak_mb": 3.01,
+      "untraced_latency_ms_s": 2.64,
+      "validation": "PASS"
+    },
+    {
+      "sequence": "MH_05_difficult",
+      "dataset": "EuRoC MAV",
+      "frames": 22137,
+      "ate_rmse_m": 202.62,
+      "rpe_1s_rmse_m": 8.22,
+      "heap_peak_mb": 3.37,
+      "untraced_latency_ms_s": 2.68,
+      "validation": "PASS"
+    },
+    {
+      "sequence": "TUM-VI Room 1",
+      "dataset": "TUM-VI (Canonical & Corrected)",
+      "frames": 27330,
+      "ate_rmse_m": 168.51,
+      "rpe_1s_rmse_m": 12.97,
+      "heap_peak_mb": 4.13,
+      "untraced_latency_ms_s": 2.79,
+      "validation": "PASS",
+      "footnote": "Canonical and corrected variants were independently evaluated; both produced bit-identical trajectories. Each preserved all 27,330 input rows and 35 duplicate timestamp pairs."
+    }
+  ],
+  "detailed_metrics": [
+    {
+      "id": "MH_01",
+      "name": "MH_01_easy",
+      "variant": "EuRoC Degraded",
+      "frames_in": 35629,
+      "frames_out": 35629,
+      "duplicates_count": 49,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 8.842136089981523e-07,
+      "ate_rmse_m": 374.7421,
+      "rpe_1s_rmse_m": 9.0771,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 336.7084,
+        "cp_50_pct": 161.4783,
+        "cp_75_pct": 346.561
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 617.9715,
+        "endpoint_error": 620.929
+      },
+      "dropout_recovery_error_m": 403.4475,
+      "path_lengths_m": {
+        "estimated": 1510.5608,
+        "ground_truth": 80.6245
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 5.3794,
+        "latency_untraced_ms_per_s": 2.4795,
+        "latency_traced_ms_per_s": 179.8758,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "CONFIRMED_QUASI_STATIONARY",
+        "confidence": "HIGH",
+        "estimated_bias_rad_s": [
+          -0.0030296719999999997,
+          0.022073285499999998,
+          0.0810760945
+        ],
+        "bias_error_deg_s": 0.1072,
+        "bias_error_note": "Measured vs. raw IMU golden baseline reference [-0.003206, 0.020793, 0.079723] rad/s"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "MH_02",
+      "name": "MH_02_easy",
+      "variant": "EuRoC Degraded",
+      "frames_in": 29480,
+      "frames_out": 29480,
+      "duplicates_count": 30,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 8.657373746778774e-07,
+      "ate_rmse_m": 332.63,
+      "rpe_1s_rmse_m": 10.0219,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 311.0325,
+        "cp_50_pct": 57.2034,
+        "cp_75_pct": 350.0045
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 473.2792,
+        "endpoint_error": 474.505
+      },
+      "dropout_recovery_error_m": 302.8794,
+      "path_lengths_m": {
+        "estimated": 1426.6142,
+        "ground_truth": 73.4716
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 4.4396,
+        "latency_untraced_ms_per_s": 2.5328,
+        "latency_traced_ms_per_s": 73.0016,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "NO_RELIABLE_INTERVAL",
+        "confidence": "NONE",
+        "estimated_bias_rad_s": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "MH_03",
+      "name": "MH_03_medium",
+      "variant": "EuRoC Degraded",
+      "frames_in": 26189,
+      "frames_out": 26189,
+      "duplicates_count": 29,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 8.821971109185256e-07,
+      "ate_rmse_m": 309.47,
+      "rpe_1s_rmse_m": 8.9286,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 330.7467,
+        "cp_50_pct": 33.1702,
+        "cp_75_pct": 284.0243
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 549.7758,
+        "endpoint_error": 552.7432
+      },
+      "dropout_recovery_error_m": 296.8903,
+      "path_lengths_m": {
+        "estimated": 1011.2287,
+        "ground_truth": 130.9061
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 3.9622,
+        "latency_untraced_ms_per_s": 2.5587,
+        "latency_traced_ms_per_s": 98.5025,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "CONFIRMED_QUASI_STATIONARY",
+        "confidence": "MEDIUM",
+        "estimated_bias_rad_s": [
+          -0.001693548484848485,
+          0.01967577424242424,
+          0.07852523484848485
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "MH_04",
+      "name": "MH_04_difficult",
+      "variant": "EuRoC Degraded",
+      "frames_in": 19753,
+      "frames_out": 19753,
+      "duplicates_count": 19,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 8.781321143569443e-07,
+      "ate_rmse_m": 156.7691,
+      "rpe_1s_rmse_m": 7.1481,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 141.8478,
+        "cp_50_pct": 54.2437,
+        "cp_75_pct": 142.2213
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 305.3893,
+        "endpoint_error": 307.9445
+      },
+      "dropout_recovery_error_m": 138.9978,
+      "path_lengths_m": {
+        "estimated": 538.0058,
+        "ground_truth": 91.7321
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 3.012,
+        "latency_untraced_ms_per_s": 2.635,
+        "latency_traced_ms_per_s": 74.6181,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "CONFIRMED_QUASI_STATIONARY",
+        "confidence": "MEDIUM",
+        "estimated_bias_rad_s": [
+          -0.002001215217391305,
+          0.02000974347826087,
+          0.07670068043478259
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "MH_05",
+      "name": "MH_05_difficult",
+      "variant": "EuRoC Degraded",
+      "frames_in": 22137,
+      "frames_out": 22137,
+      "duplicates_count": 27,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 8.968130977837774e-07,
+      "ate_rmse_m": 202.6192,
+      "rpe_1s_rmse_m": 8.2175,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 182.333,
+        "cp_50_pct": 105.5651,
+        "cp_75_pct": 187.6489
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 379.0418,
+        "endpoint_error": 382.1169
+      },
+      "dropout_recovery_error_m": 187.4509,
+      "path_lengths_m": {
+        "estimated": 735.131,
+        "ground_truth": 97.5903
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 3.3681,
+        "latency_untraced_ms_per_s": 2.6833,
+        "latency_traced_ms_per_s": 76.3226,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "CONFIRMED_QUASI_STATIONARY",
+        "confidence": "MEDIUM",
+        "estimated_bias_rad_s": [
+          -0.002007664705882353,
+          0.02000115735294118,
+          0.0778294455882353
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "TUM_VI_canonical",
+      "name": "TUM-VI Room 1",
+      "variant": "Canonical",
+      "frames_in": 27330,
+      "frames_out": 27330,
+      "duplicates_count": 35,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 7.61106710323034e-07,
+      "ate_rmse_m": 168.509,
+      "rpe_1s_rmse_m": 12.9688,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 169.6529,
+        "cp_50_pct": 112.9848,
+        "cp_75_pct": 201.6891
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 170.7208,
+        "endpoint_error": 171.0658
+      },
+      "dropout_recovery_error_m": 184.5043,
+      "path_lengths_m": {
+        "estimated": 947.4492,
+        "ground_truth": 146.7855
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 4.127,
+        "latency_untraced_ms_per_s": 2.7863,
+        "latency_traced_ms_per_s": 75.5078,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "NO_RELIABLE_INTERVAL",
+        "confidence": "NONE",
+        "estimated_bias_rad_s": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    },
+    {
+      "id": "TUM_VI_corrected",
+      "name": "TUM-VI Room 1",
+      "variant": "Corrected",
+      "frames_in": 27330,
+      "frames_out": 27330,
+      "duplicates_count": 35,
+      "all_positions_finite": true,
+      "max_quaternion_norm_error": 7.61106710323034e-07,
+      "ate_rmse_m": 168.509,
+      "rpe_1s_rmse_m": 12.9688,
+      "checkpoint_errors_m": {
+        "cp_25_pct": 169.6529,
+        "cp_50_pct": 112.9848,
+        "cp_75_pct": 201.6891
+      },
+      "blind_5s_errors_m": {
+        "trajectory_error": 170.7208,
+        "endpoint_error": 171.0658
+      },
+      "dropout_recovery_error_m": 184.5043,
+      "path_lengths_m": {
+        "estimated": 947.4492,
+        "ground_truth": 146.7855
+      },
+      "resource_metrics": {
+        "python_heap_peak_mb": 4.1285,
+        "latency_untraced_ms_per_s": 2.5294,
+        "latency_traced_ms_per_s": 72.5789,
+        "single_thread": true
+      },
+      "bias_estimation": {
+        "status": "NO_RELIABLE_INTERVAL",
+        "confidence": "NONE",
+        "estimated_bias_rad_s": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bias_error_deg_s": "N/A",
+        "bias_error_note": "N/A (No authoritative ground-truth reference exists in challenge specification)"
+      },
+      "validation_status": "PASS"
+    }
+  ]
+}

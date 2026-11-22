@@ -1,0 +1,55 @@
+{
+  "pipeline_version": "Stage 4 Step 3",
+  "scenario_id": "S4-01",
+  "seed": 42,
+  "input_path": "outputs/stage5_inputs/S4-04.csv",
+  "output_path": "outputs/py_S4-04.txt",
+  "input_raw_frames": 35715,
+  "frames_after_degradation": 35715,
+  "output_tum_poses": 35715,
+  "extrapolated_poses": 0,
+  "telemetry_duration_s": 184.095000064,
+  "execution_runtime_s": 2.2902524000091944,
+  "compute_latency_ms_per_s": 12.440600772497874,
+  "python_heap_peak_mb": 14.759106636047363,
+  "process_peak_rss_mb": 135.32421875,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "meets_python_heap_budget": false,
+  "meets_process_ram_budget": false,
+  "meets_compute_latency_budget": true,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "env_vars_single": true,
+    "active_threadpools": [],
+    "actual_threadpools_single": true
+  },
+  "validation": {
+    "valid": true,
+    "row_count": 35715,
+    "duration_s": 184.095000064,
+    "duration_decimal_s": "184.095000064",
+    "timestamp_start_s": 1403636579.7585554,
+    "timestamp_end_s": 1403636763.8535554,
+    "max_quat_norm_deviation": 8.853821080734292e-07
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.003202591029467575,
+      0.0208286535157699,
+      0.07979257489173187
+    ],
+    "confidence": "HIGH",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 4120,
+      "end_index": 6099,
+      "start_timestamp_ns": 1403636600983555584,
+      "end_timestamp_ns": 1403636611283555584,
+      "duration_s": 10.3,
+      "sample_count": 1980,
+      "total_candidate_intervals_found": 2
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}

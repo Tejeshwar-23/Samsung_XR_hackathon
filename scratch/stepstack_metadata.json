@@ -1,0 +1,52 @@
+{
+  "team_name": "stepstack",
+  "track": "Track 3 - Path Finder: Trajectory Estimation Under Sensor Degradation",
+  "submission_language": "Python 3 (Standalone)",
+  "pipeline_version": "Production Config A (V_MAX=10.0 m/s, OUTAGE_DECAY_RATE=1.5 s^-1)",
+  "entrypoint": "src/main.py",
+  "dataset": "EuRoC MAV MH_01_easy (Degraded)",
+  "input_path": "data/degraded/MH_01_easy_degraded.csv",
+  "output_path": "estimated_trajectory.txt",
+  "input_frames": 35629,
+  "output_tum_poses": 35629,
+  "one_to_one_row_preservation": true,
+  "duplicate_timestamps_preserved": 49,
+  "terminal_failure_frames_preserved": true,
+  "telemetry_duration_s": 184.095000064,
+  "compute_latency_ms_per_s_untraced": 2.4795,
+  "compute_latency_budget_ms_per_s": 20.0,
+  "meets_compute_latency_budget": true,
+  "python_heap_peak_mb": 5.3794,
+  "python_heap_budget_mb": 8.0,
+  "meets_python_heap_budget": true,
+  "single_thread_enforced": true,
+  "tum_format_status": "PASS",
+  "max_quat_norm_deviation": 8.84e-07,
+  "all_positions_finite": true,
+  "metrics": {
+    "ate_rmse_m": 374.7421,
+    "rpe_1s_rmse_m": 9.0771,
+    "checkpoint_25pct_m": 336.7084,
+    "checkpoint_50pct_m": 161.4783,
+    "checkpoint_75pct_m": 346.561,
+    "blind_5s_trajectory_error_m": 617.9715,
+    "blind_5s_endpoint_error_m": 620.929,
+    "dropout_recovery_error_m": 403.4475,
+    "estimated_path_length_m": 1510.5608,
+    "gt_path_length_m": 80.6245
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [
+      -0.003029672,
+      0.022073285,
+      0.081076095
+    ],
+    "confidence": "HIGH",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "duration_s": 10.025
+  },
+  "execution_instructions": {
+    "standard_run": "python src/main.py --input <imu_csv> --output estimated_trajectory.txt",
+    "alternative_run": "python main.py --input <imu_csv> --output estimated_trajectory.txt"
+  }
+}

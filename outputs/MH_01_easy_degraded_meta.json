@@ -1,0 +1,56 @@
+{
+  "seed": 42,
+  "rows_in": 36820,
+  "rows_out": 35629,
+  "duration_s": 184.095000064,
+  "median_dt_s": 0.004999936000004368,
+  "timestamp_unit": "ns",
+  "accel_unit": "m/s^2",
+  "gyro_unit": "rad/s",
+  "severity_start": 0.02,
+  "severity_end": 1.0,
+  "spikes": 38,
+  "stuck_samples": 525,
+  "dropped_single": 796,
+  "dropped_burst_gaps": 26,
+  "dropped_total": 1240,
+  "duplicated_rows": 49,
+  "failure_frames": 1001,
+  "final_gyro_bias_rad_s": [
+    -0.00443,
+    -0.00188,
+    -0.00451
+  ],
+  "final_accel_bias_m_s2": [
+    -0.0136,
+    -0.0648,
+    0.0364
+  ],
+  "config": {
+    "max_level": 1.0,
+    "gamma": 1.7,
+    "floor": 0.02,
+    "protect_seconds": 2.0,
+    "failure_seconds": 5.0,
+    "accel_white_max": 0.2,
+    "gyro_white_max": 0.015,
+    "accel_bias_rw_max": 0.01,
+    "gyro_bias_rw_max": 0.0006,
+    "scale_rw_max": 0.0015,
+    "spike_prob_max": 0.003,
+    "accel_spike_mag": 6.0,
+    "gyro_spike_mag": 1.0,
+    "stuck_prob_max": 0.008,
+    "stuck_len": [
+      2,
+      10
+    ],
+    "drop_prob_max": 0.06,
+    "burst_prob_max": 0.0015,
+    "burst_len": [
+      5,
+      50
+    ],
+    "dup_prob_max": 0.003
+  }
+}

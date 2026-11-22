@@ -1,0 +1,52 @@
+{
+  "pipeline_version": "Stage 4 Native C99 (MSYS2 UCRT64 GCC)",
+  "scenario_id": "S4-04",
+  "seed": 42,
+  "input_path": "outputs/stage5_inputs/S4-04.csv",
+  "output_path": "outputs/native_S4-04.txt",
+  "input_raw_frames": 35715,
+  "frames_after_degradation": 35715,
+  "output_tum_poses": 35715,
+  "extrapolated_poses": 0,
+  "telemetry_duration_s": 184.095000064,
+  "execution_runtime_s": 0.324194,
+  "compute_latency_ms_per_s": 1.7610,
+  "python_heap_peak_mb": null,
+  "process_peak_rss_mb": 4.3516,
+  "process_peak_rss_method": "GetProcessMemoryInfo/PeakWorkingSetSize",
+  "process_peak_rss_valid": true,
+  "process_peak_pagefile_mb": 0.9766,
+  "process_peak_pagefile_method": "GetProcessMemoryInfo/PeakPagefileUsage",
+  "process_peak_pagefile_valid": true,
+  "meets_python_heap_budget": null,
+  "meets_process_ram_budget": true,
+  "meets_compute_latency_budget": true,
+  "single_thread_enforced": true,
+  "thread_verification": {
+    "native_thread_count": 2,
+    "env_vars_single": true,
+    "os_affinity_single": true
+  },
+  "validation": {
+    "file_path": "outputs/native_S4-04.txt",
+    "row_count": 35715,
+    "duration_s": 184.095000064,
+    "max_quat_norm_deviation": 8.78e-07,
+    "format_valid": true
+  },
+  "bias_estimation": {
+    "gyro_bias_rad_s": [-3.202591029467509e-03, 2.082865351576958e-02, 7.979257489173210e-02],
+    "confidence": "HIGH",
+    "status": "CONFIRMED_QUASI_STATIONARY",
+    "interval_info": {
+      "start_index": 4120,
+      "end_index": 6099,
+      "start_timestamp_ns": 1403636600983555584,
+      "end_timestamp_ns": 1403636611283555584,
+      "duration_s": 10.300000000,
+      "sample_count": 1980,
+      "total_candidate_intervals_found": 2
+    },
+    "micro_gap_threshold_s": 0.025
+  }
+}
