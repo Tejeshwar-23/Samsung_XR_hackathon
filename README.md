@@ -20,16 +20,16 @@ Extended Reality (XR) headsets demand continuous, ultra-low-latency 6-DoF spatia
 
 This repository contains our production-grade, autonomous strapdown inertial navigation system (INS) engineered specifically for **high-stress, corrupted IMU telemetry streams**. Operating **purely on IMU inputs** (without external camera, LiDAR, or GNSS aiding), the system incorporates:
 1. **Saturation & Blackout Sanitization:** Channel-level validity isolation without erroneous forward-filling.
-2. **Quasi-Stationary Gyroscope Bias Estimation (ZARU):** Multi-criterion sliding-window detection recovering 3-axis bias without ground truth ($0.107^\circ/\text{s}$ error on MH_01).
+2. **Quasi-Stationary Gyroscope Bias Estimation (ZARU):** Multi-criterion sliding-window detection recovering 3-axis bias without ground truth (0.107°/s error on MH_01).
 3. **World-Frame Gravity Alignment:** Analytical shortest-arc leveling initializing orientation in the level navigation frame.
-4. **Adaptive Interval-Specific Outage Dynamics (Production Configuration A):** Differentiated policies for zero-duration duplicate timestamps, short packet dropouts, multi-second dropouts, and terminal 5-second complete sensor blackouts with exponential velocity decay and a $10.0\text{ m/s}$ physical velocity cap.
+4. **Adaptive Interval-Specific Outage Dynamics (Production Configuration A):** Differentiated policies for zero-duration duplicate timestamps, short packet dropouts, multi-second dropouts, and terminal 5-second complete sensor blackouts with exponential velocity decay and a 10.0 m/s physical velocity cap.
 5. **Exact 1:1 TUM Trajectory Export:** Precision-safe 8-column formatting preserving every input frame, timestamp, and duplicate pair.
 
 ---
 
 ## 🏆 Production Results & Findings (Slide 11)
 
-All metrics correspond to **Production Configuration A** ($V_{\max} = 10.0\text{ m/s}$, $\text{decay\_rate} = 1.5\text{ s}^{-1}$), evaluated against ground truth using `evo` with SE(3) Umeyama rigid-body alignment ($s = 1.0$) and a 1.0-second rolling RPE window:
+All metrics correspond to **Production Configuration A** (`V_MAX = 10.0 m/s`, `OUTAGE_DECAY_RATE = 1.5 s⁻¹`), evaluated against ground truth using `evo` with SE(3) Umeyama rigid-body alignment (`scale = 1.0`) and a 1.0-second rolling RPE window:
 
 | Dataset / Sequence | Input Frames | Output Poses | ATE RMSE (m) | 1s RPE RMSE (m) | Peak Heap (MB) | Untraced Latency (ms/s) | TUM Status |
 |:---|---:|---:|---:|---:|---:|---:|:---:|
@@ -122,19 +122,19 @@ A primary challenge in degraded dead-reckoning is avoiding runaway velocity dive
 
 | Interval Condition | Operational Detection | Downstream Estimator Behavior |
 |:---|:---|:---|
-| **Zero-Duration Duplicate** | $\Delta t_k = 0\text{ s}$ | Zero state advancement ($\mathbf{p}_k = \mathbf{p}_{k-1}$, $\mathbf{v}_k = \mathbf{v}_{k-1}$); zero decay. Retains exact row mapping. |
-| **Nominal Flight** | $0 < \Delta t_k \le 0.025\text{ s}$, valid sensor | Trapezoidal acceleration integration, velocity capped at $V_{\max} = 10.0\text{ m/s}$. |
-| **Short Packet Dropout** | $\Delta t_k > 0.025\text{ s}$ or invalid sensor | Acceleration zeroed; exponential velocity decay $\mathbf{v}_k = \mathbf{v}_{k-1} \cdot e^{-1.5 \Delta t_k}$; position propagated linearly. |
-| **Multi-Second Blackout** | $\Delta t_k \ge 2.0\text{ s}$ (e.g. S4-06/S4-07) | Sustained exponential velocity damping preventing explosive quadratic trajectory expansion. |
+| **Zero-Duration Duplicate** | `dt == 0 s` | Zero state advancement (`p_k = p_{k-1}`, `v_k = v_{k-1}`); zero decay. Retains exact row mapping. |
+| **Nominal Flight** | `0 < dt <= 0.025 s`, valid sensor | Trapezoidal acceleration integration, velocity capped at `V_MAX = 10.0 m/s`. |
+| **Short Packet Dropout** | `dt > 0.025 s` or invalid sensor | Acceleration zeroed; exponential velocity decay `v_k = v_{k-1} * exp(-1.5 * dt)`; position propagated linearly. |
+| **Multi-Second Blackout** | `dt >= 2.0 s` (e.g. S4-06/S4-07) | Sustained exponential velocity damping preventing explosive quadratic trajectory expansion. |
 | **Terminal 5-Second Failure** | Contiguous 6-axis zeros extending to end | Consistent velocity decay policy across the blind prediction interval; exact frame count preserved. |
 
 ### 2. Velocity Cap Headroom Analysis
-Ground-truth drone speeds across all EuRoC sequences peak at $2.87\text{ m/s}$. Our $V_{\max} = 10.0\text{ m/s}$ threshold provides **$>3.4\times$ headroom**, ensuring genuine high-acceleration maneuvers are never clipped while arresting spurious integration noise during dropouts.
+Ground-truth drone speeds across all EuRoC sequences peak at 2.87 m/s. Our `V_MAX = 10.0 m/s` threshold provides **>3.4× headroom**, ensuring genuine high-acceleration maneuvers are never clipped while arresting spurious integration noise during dropouts.
 
 ### 3. Memory & Latency Optimization
 - **Memoryview Indexing:** Both orientation and position integration loops utilize direct Python `memoryview` indexing over pre-allocated NumPy buffers, eliminating temporary slice allocations.
 - **Single-Thread Pinning:** Environment variables (`OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `NUMEXPR_NUM_THREADS`) are explicitly pinned to `"1"` before loading numerical libraries.
-- **Dual Timing Protocol:** Traced latency ($72 - 180\text{ ms/s}$) reflects `tracemalloc` profiling overhead; official untraced runtime is measured cleanly at **$2.48 - 2.79\text{ ms/s}$**.
+- **Dual Timing Protocol:** Traced latency (72–180 ms/s) reflects `tracemalloc` profiling overhead; official untraced runtime is measured cleanly at **2.48–2.79 ms/s**.
 
 ---
 
@@ -260,8 +260,8 @@ stepstack.zip
 ## 📖 Theoretical Limitations of Pure IMU Dead-Reckoning
 
 Pure strapdown inertial dead-reckoning without external updates (vision, LiDAR, or GNSS) is subject to well-known physical error progression:
-1. **Gyroscope Bias Residuals ($\delta \mathbf{b}_\omega$):** In open-loop navigation, a constant residual bias induces an orientation error $\delta \boldsymbol{\theta} \approx \delta \mathbf{b}_\omega t$. Misprojecting the gravity vector $\mathbf{g}$ results in apparent horizontal acceleration residuals, yielding **cubic position error growth** $\frac{1}{6} g \delta \mathbf{b}_\omega t^3$.
-2. **Accelerometer Bias ($\mathbf{b}_a$):** Unobservable during steady-state motion, double integration results in **quadratic position drift** $\frac{1}{2} \mathbf{b}_a t^2$.
+1. **Gyroscope Bias Residuals ($\delta b_\omega$):** In open-loop navigation, a constant residual bias induces an orientation error $\delta \theta \approx \delta b_\omega t$. Misprojecting the gravity vector $g$ results in apparent horizontal acceleration residuals, yielding **cubic position error growth** $\frac{1}{6} g \delta b_\omega t^3$.
+2. **Accelerometer Bias ($b_a$):** Unobservable during steady-state motion, double integration results in **quadratic position drift** $\frac{1}{2} b_a t^2$.
 
 Over extended flight durations (e.g. 184 seconds on `MH_01_easy`), unassisted dead-reckoning inevitably drifts. This pipeline prioritizes **physical correctness, numerical stability, exact row preservation, and budget compliance**.
 
